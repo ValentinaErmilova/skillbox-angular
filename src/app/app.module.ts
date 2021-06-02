@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ButtonModule } from "./button/button.module";
+import { RatingModule } from "./rating/rating.module";
+import { BadgeModule } from "./badge/badge.module";
+import { IconModule } from "./icon/icon.module";
+import { TooltipModule } from "./tooltip/tooltip.module";
 
 @NgModule({
   declarations: [
@@ -10,7 +14,11 @@ import { ButtonModule } from "./button/button.module";
   ],
   imports: [
     BrowserModule,
-    ButtonModule
+    ButtonModule,
+    RatingModule,
+    BadgeModule,
+    IconModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
