@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-import { ButtonModule } from "./button/button.module";
 import { RatingModule } from "./rating/rating.module";
-import { BadgeModule } from "./badge/badge.module";
-import { IconModule } from "./icon/icon.module";
-import { TooltipModule } from "./tooltip/tooltip.module";
+import { ProductCardModule } from "./product-card/product-card.module";
+import { IconTooltipModule } from "./icon-tooltip/icon-tooltip.module";
+import { DropDownListModule } from "./drop-down-list/drop-down-list.module";
 
 @NgModule({
   declarations: [
@@ -14,11 +12,10 @@ import { TooltipModule } from "./tooltip/tooltip.module";
   ],
   imports: [
     BrowserModule,
-    ButtonModule,
     RatingModule,
-    BadgeModule,
-    IconModule,
-    TooltipModule
+    ProductCardModule,
+    IconTooltipModule,
+    DropDownListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

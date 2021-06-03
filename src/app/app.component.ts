@@ -7,13 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular';
-  inCart = 0;
-
-  addToCart() {
-    this.inCart++;
-  }
-
-  removeFromCart() {
-    return this.inCart > 0 ? this.inCart-- : this.inCart;
-  }
 }
