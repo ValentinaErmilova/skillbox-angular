@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-drop-down-list',
@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./drop-down-list.component.scss']
 })
 export class DropDownListComponent implements OnInit {
+  @Input() label = "";
+  @Input() list: List[] = [{value: "", viewValue: ''}];
+  @Output() updateValue = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
+  selectChangeHandler (event: any) {
+    this.updateValue.emit(event.target.value);
+  }
+}
+interface List {
+  value: string;
+  viewValue: string;
 }

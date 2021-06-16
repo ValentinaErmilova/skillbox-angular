@@ -5,6 +5,7 @@ import { RatingModule } from "./rating/rating.module";
 import { ProductCardModule } from "./product-card/product-card.module";
 import { IconTooltipModule } from "./icon-tooltip/icon-tooltip.module";
 import { DropDownListModule } from "./drop-down-list/drop-down-list.module";
+import {ButtonModule} from "./button/button.module";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DropDownListModule } from "./drop-down-list/drop-down-list.module";
     RatingModule,
     ProductCardModule,
     IconTooltipModule,
-    DropDownListModule
+    DropDownListModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
