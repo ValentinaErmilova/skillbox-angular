@@ -8,7 +8,7 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 })
 export class ButtonComponent implements OnChanges, OnInit {
 
-  @Input() color = "#FFFFFF";
+  @Input() color = "#4CAF50";
   @Input() fontSize = "15px";
   @Input() isActive = false;
   @Input() isDisabled = false;
