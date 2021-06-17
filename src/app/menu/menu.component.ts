@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  template: '<p [ngStyle]="{\'display\': this.isOpen ? \'block\' : \'none\'}">menu works!</p>',
+  styles: []
 })
 export class MenuComponent implements OnInit {
-
+  @Input() isOpen = true;
   constructor() { }
 
   ngOnInit(): void {
