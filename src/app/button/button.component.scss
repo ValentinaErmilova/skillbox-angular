@@ -10,3 +10,12 @@ button {
   margin: 4px 2px;
   cursor: pointer;
 }
+.active, button:hover {
+  border: black solid 2px;
+}
+
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}

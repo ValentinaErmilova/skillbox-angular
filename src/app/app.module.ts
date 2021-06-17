@@ -6,19 +6,21 @@ import { ProductCardModule } from "./product-card/product-card.module";
 import { IconTooltipModule } from "./icon-tooltip/icon-tooltip.module";
 import { DropDownListModule } from "./drop-down-list/drop-down-list.module";
 import {ButtonModule} from "./button/button.module";
+import {ToggleModule} from "./toggle/toggle.module";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
-    RatingModule,
-    ProductCardModule,
-    IconTooltipModule,
-    DropDownListModule,
-    ButtonModule
-  ],
+    imports: [
+        BrowserModule,
+        RatingModule,
+        ProductCardModule,
+        IconTooltipModule,
+        DropDownListModule,
+        ButtonModule,
+        ToggleModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

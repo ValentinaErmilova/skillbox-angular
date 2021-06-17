@@ -1,13 +1,16 @@
-import {Component, OnChanges, SimpleChanges} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnChanges {
+export class AppComponent {
   selectedColor: string = '';
   selectedSize: string = '';
+  isActive: boolean = false;
+  isDisabled: boolean = false;
+
   color: List[] = [
     {value: "#4CAF50", viewValue: 'default'},
     {value: "#2334dd", viewValue: 'primary'},
@@ -20,10 +23,6 @@ export class AppComponent implements OnChanges {
     {value: "30px", viewValue: 'large'},
     {value: "5px", viewValue: 'small'}
   ];
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-  }
 }
 interface List {
   value: string;
