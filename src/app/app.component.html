@@ -1,6 +1,13 @@
-{{title}}
+<div class="task">
+  <h1> Task 1</h1>
+  <app-drop-down-list [label]="'Color:'" [list]='color' (updateValue)="selectedColor = $event"></app-drop-down-list>
+  <app-drop-down-list [label]="'Size:'" [list]='size' (updateValue)="selectedSize = $event"></app-drop-down-list>
+  <app-toggle [label]="'is Active:'" (updateValue)="isActive = $event"></app-toggle>
+  <app-toggle [label]="'is Disabled:'" (updateValue)="isDisabled = $event"></app-toggle>
+  <app-button [color]=selectedColor [fontSize]=selectedSize [isActive]="isActive" [isDisabled]="isDisabled"></app-button>
+</div>
+<div class="task">
+  <h1> Task 2</h1>
+  <app-drop-down-menu></app-drop-down-menu>
+</div>
 
-<app-rating></app-rating>
-<app-product-card></app-product-card>
-<app-icon-tooltip></app-icon-tooltip>
-<app-drop-down-list></app-drop-down-list>

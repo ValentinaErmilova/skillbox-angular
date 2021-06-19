@@ -1,4 +1,4 @@
-<p>drop-down-list works!</p>
-there is 1 component
-<app-button text="Просто кнопка"></app-button>
-
+{{label}}
+<select [ngClass]="['select']" (change)="selectChangeHandler($event)">
+  <option *ngFor="let item of list" [value]="item.value"> {{item.viewValue}}</option>
+</select>
