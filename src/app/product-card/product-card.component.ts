@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {Product} from "../types/product";
+import {Cart} from "../types/cart";
 
 @Component({
   selector: 'app-product-card',
@@ -6,18 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
-  inCart = 0;
+
+  @Input() products: Product[] = [];
+  @Output() onClick = new EventEmitter<Cart>();
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  addToCart() {
-    this.inCart++;
-  }
-
-  removeFromCart() {
-    return this.inCart > 0 ? this.inCart-- : this.inCart;
   }
 }

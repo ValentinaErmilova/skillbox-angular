@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RatingModule } from "./rating/rating.module";
@@ -8,6 +8,11 @@ import { DropDownListModule } from "./drop-down-list/drop-down-list.module";
 import {ButtonModule} from "./button/button.module";
 import {ToggleModule} from "./toggle/toggle.module";
 import {DropDownMenuModule} from "./drop-down-menu/drop-down-menu.module";
+import {CatalogModule} from "./catalog/catalog.module";
+import localeRu from '@angular/common/locales/ru';
+import {registerLocaleData} from "@angular/common";
+
+registerLocaleData(localeRu);
 
 @NgModule({
   declarations: [
@@ -21,9 +26,18 @@ import {DropDownMenuModule} from "./drop-down-menu/drop-down-menu.module";
     DropDownListModule,
     ButtonModule,
     ToggleModule,
-    DropDownMenuModule
+    DropDownMenuModule,
+    CatalogModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'ru'
+  }],
+  bootstrap: [
+    AppComponent
+  ],
+  exports: [
+    AppComponent
+  ]
 })
 export class AppModule { }

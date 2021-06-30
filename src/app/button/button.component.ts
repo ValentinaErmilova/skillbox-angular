@@ -1,23 +1,26 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Product} from "../types/product";
+import {Cart} from "../types/cart";
 
 @Component({
   selector: 'app-button',
-  template: '<button [ngStyle]="{\'background-color\': this.color, \'font-size\': this.fontSize}" ' +
-    '[ngClass]="{active: this.isActive}" [disabled]="this.isDisabled">Click from component</button>',
+  template: '<button (click)="addToCart(product)">Добавить в корзину</button>',
   styleUrls: ['./button.component.scss']
 })
-export class ButtonComponent implements OnChanges, OnInit {
+export class ButtonComponent implements OnInit {
 
-  @Input() color = "#4CAF50";
-  @Input() fontSize = "15px";
-  @Input() isActive = false;
-  @Input() isDisabled = false;
+  @Output() onClick = new EventEmitter<Cart>();
+  @Input() product: any;
+  count: number = 0;
 
   constructor() { }
 
   ngOnInit(): void {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.color, this.isActive, this.fontSize, this.isDisabled)
+  addToCart(product: Product) {
+    let productInCart = new Cart();
+    productInCart.count = this.count++;
+    productInCart.product = product;
+    this.onClick.emit(productInCart)
   }
 }
