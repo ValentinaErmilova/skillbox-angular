@@ -5,7 +5,7 @@ export interface Product {
   title?: string;
   image?: string;
   rating?: ProductRating;
-  price?: ProductPrice;
+  price: ProductPrice;
   badge?: ProductBadge;
 }
 
@@ -14,8 +14,8 @@ export interface ProductRating {
   reviews?: number;
 }
 
-export interface ProductPrice {
-  value?: number;
+export class ProductPrice {
+  value: number = 0;
   discount?: number;
 }
 

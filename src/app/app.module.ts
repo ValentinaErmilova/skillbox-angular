@@ -5,12 +5,14 @@ import { RatingModule } from "./rating/rating.module";
 import { ProductCardModule } from "./product-card/product-card.module";
 import { IconTooltipModule } from "./icon-tooltip/icon-tooltip.module";
 import { DropDownListModule } from "./drop-down-list/drop-down-list.module";
-import {ButtonModule} from "./button/button.module";
-import {ToggleModule} from "./toggle/toggle.module";
-import {DropDownMenuModule} from "./drop-down-menu/drop-down-menu.module";
-import {CatalogModule} from "./catalog/catalog.module";
+import { ButtonModule } from "./button/button.module";
+import { ToggleModule } from "./toggle/toggle.module";
+import { DropDownMenuModule } from "./drop-down-menu/drop-down-menu.module";
+import { CatalogModule } from "./catalog/catalog.module";
 import localeRu from '@angular/common/locales/ru';
-import {registerLocaleData} from "@angular/common";
+import { registerLocaleData} from "@angular/common";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartModule } from "./cart/cart.module";
 
 registerLocaleData(localeRu);
 
@@ -27,7 +29,9 @@ registerLocaleData(localeRu);
     ButtonModule,
     ToggleModule,
     DropDownMenuModule,
-    CatalogModule
+    CatalogModule,
+    NgbModule,
+    CartModule
   ],
   providers: [{
     provide: LOCALE_ID,
