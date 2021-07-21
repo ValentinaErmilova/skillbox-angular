@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {Product} from "../types/product";
+import {InCart} from "../types/inCart";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-product-card',
@@ -6,18 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
-  inCart = 0;
 
-  constructor() { }
+  @Input() products: Product[] = [];
+  @Output() onClick = new EventEmitter<InCart>();
+
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
-  }
-
-  addToCart() {
-    this.inCart++;
-  }
-
-  removeFromCart() {
-    return this.inCart > 0 ? this.inCart-- : this.inCart;
   }
 }
