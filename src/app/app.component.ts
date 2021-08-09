@@ -6,4 +6,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  count: number = 0;
+
+  onActivate(e : any) {
+    e.addToCard?.subscribe((count: number) => this.count = count);
+  }
 }

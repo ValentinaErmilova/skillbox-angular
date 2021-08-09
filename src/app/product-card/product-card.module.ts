@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from './product-card.component';
 import { ButtonModule } from "../button/button.module";
 import { BadgeModule } from "../badge/badge.module";
+import {ProductCartRoutingModule} from "./product-cart-routing.module";
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { BadgeModule } from "../badge/badge.module";
   imports: [
     CommonModule,
     ButtonModule,
-    BadgeModule
+    BadgeModule,
+    ProductCartRoutingModule
   ],
   exports: [
     ProductCardComponent
