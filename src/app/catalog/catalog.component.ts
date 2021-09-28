@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {products} from '../data/products.data';
 import {Product} from "../types/product";
 import {InCart} from "../types/inCart";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-catalog',
@@ -14,10 +15,27 @@ export class CatalogComponent implements OnInit {
   products: Product[] = products;
   countInCart: number = 0;
   @Output() addToCard = new EventEmitter<number>();
+  //title?: string;
 
-  constructor() {}
+  constructor(private router: Router, private route: ActivatedRoute) {
+    //this.title = this.route.snapshot.data.title;
+  }
 
   ngOnInit(): void {
+    this.route.queryParams
+      .subscribe(params => this.sortBy(params.search));
+  }
+
+  setSearch(search: string) {
+    if (!search) {
+      this.sortBy("");
+      return;
+    }
+    this.router.navigate(['.'],
+      {
+        relativeTo: this.route,
+        queryParams: { search }
+      })
   }
 
   addToCart(product: InCart) {
@@ -34,5 +52,16 @@ export class CatalogComponent implements OnInit {
       this.countInCart = this.countInCart - existsProduct.count;
       this.inCart.splice(index, 1);
     }
+  }
+
+  sortBy(search: string) {
+    const data = this.products.slice();
+    if(!search) {
+      this.products = data;
+      return;
+    }
+    this.products = data.filter(p => {
+      return p.title?.toLocaleLowerCase().includes(search);
+    });
   }
 }

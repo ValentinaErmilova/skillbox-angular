@@ -1,4 +1,8 @@
 <div class="row" style="margin: 20px">
+  <section class="d-flex" style="margin-bottom: 20px">
+    <input class="form-control me-2" type="text" placeholder="Search" #search>
+    <button class="btn btn-outline-success" (click)="setSearch(search.value)">Search</button>
+  </section>
   <app-product-card class="col-md-4"
     *ngFor="let product of products"
     [product]="product"

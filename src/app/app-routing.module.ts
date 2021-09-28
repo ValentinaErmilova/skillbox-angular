@@ -13,6 +13,7 @@ export const routes: Routes = [
   {
     path: 'catalog',
     component: CatalogComponent
+    //data: { title: 'Каталог товаров' }
   },
   {
     path: 'product',
