@@ -13,6 +13,7 @@ import { registerLocaleData} from "@angular/common";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartModule } from "./cart/cart.module";
 import { AppRoutingModule } from "./app-routing.module";
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(localeRu);
 
@@ -31,7 +32,8 @@ registerLocaleData(localeRu);
     DropDownMenuModule,
     CatalogModule,
     NgbModule,
-    CartModule
+    CartModule,
+    HttpClientModule
   ],
   providers: [{
     provide: LOCALE_ID,

@@ -1,8 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {products} from '../data/products.data';
 import {Product} from "../types/product";
-import {InCart} from "../types/inCart";
 import {ActivatedRoute, Router} from "@angular/router";
+import {ProductService} from "../services/product.service";
+import {CartService} from "../services/cart.service";
 
 @Component({
   selector: 'app-catalog',
@@ -11,19 +12,21 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 
 export class CatalogComponent implements OnInit {
-  public inCart: Array<InCart> = [];
-  products: Product[] = products;
-  countInCart: number = 0;
+  public products: Product[] = [];
   @Output() addToCard = new EventEmitter<number>();
   //title?: string;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private productService: ProductService,
+    private cartService: CartService) {
     //this.title = this.route.snapshot.data.title;
   }
 
   ngOnInit(): void {
-    this.route.queryParams
-      .subscribe(params => this.sortBy(params.search));
+    this.route.queryParams.subscribe(params => this.sortBy(params.search));
+    this.productService.getProducts().then(r => this.products = r).catch(e => this.products = products);
   }
 
   setSearch(search: string) {
@@ -36,22 +39,6 @@ export class CatalogComponent implements OnInit {
         relativeTo: this.route,
         queryParams: { search }
       })
-  }
-
-  addToCart(product: InCart) {
-    this.removeItemToCart(product);
-    this.countInCart = this.countInCart + product.count;
-    this.inCart.push(product);
-    this.addToCard.emit(this.countInCart);
-  }
-
-  removeItemToCart(product: InCart) {
-    let index = this.inCart.indexOf(product);
-    if (index != -1) {
-      let existsProduct = this.inCart[index];
-      this.countInCart = this.countInCart - existsProduct.count;
-      this.inCart.splice(index, 1);
-    }
   }
 
   sortBy(search: string) {
