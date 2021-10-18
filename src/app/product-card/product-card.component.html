@@ -1,7 +1,8 @@
 <div class="card mb-4 box-shadow">
   <div class="card-body">
-    <h4>{{product?.title || params?.title}}</h4>
-    <p class="card-text">{{ product?.price?.value || params?.price | currency: 'RUB ': true:'1.1-1' }}</p>
+    <h4>{{product?.title}}</h4>
+    <img *ngIf="route.snapshot.params['id']" src="{{product.image}}" class="img-thumbnail">
+    <p class="card-text">{{ product?.price?.value | currency: 'RUB ': true:'1.1-1' }}</p>
     <p class="card-text">Скидка: {{ product?.price?.discount }}</p>
     <div class="d-flex justify-content-between align-items-center">
       <app-button *ngIf="product" [product]=product (onClick)="cartService.addToCart(product)"></app-button>
