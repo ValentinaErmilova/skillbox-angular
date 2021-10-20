@@ -1,24 +1,22 @@
-import {Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from "../types/product";
-import {InCart} from "../types/inCart";
 
 @Component({
   selector: 'app-button',
-  template: '<button class="btn btn-success" (click)="addToCart(product)">Добавить в корзину</button>',
+  template: '<button class="btn btn-success" (click)="addToCart($event)">Добавить в корзину</button>',
   styles: []
 })
 export class ButtonComponent implements OnInit {
 
-  @Output() onClick = new EventEmitter<InCart>();
+  @Output() onClick = new EventEmitter<Product>();
   @Input() product: any;
 
   constructor() { }
 
   ngOnInit(): void {}
 
-  addToCart(product: Product) {
-    let productInCart = new InCart();
-    productInCart.product = product;
-    this.onClick.emit(productInCart)
+  addToCart($event: Event) {
+    $event.stopPropagation();
+    this.onClick.emit(this.product)
   }
 }

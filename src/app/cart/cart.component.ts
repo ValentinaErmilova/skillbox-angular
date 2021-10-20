@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
-import {InCart} from "../types/inCart";
+import {CartService} from "../services/cart.service";
 
 @Component({
   selector: 'app-cart',
@@ -8,16 +7,9 @@ import {InCart} from "../types/inCart";
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  @Input() inCart?: Array<InCart>;
-
-  constructor(public activeModal: NgbActiveModal) {
-  }
+  constructor(public cartService: CartService) {}
 
   ngOnInit(): void {
-  }
-
-  delete(product: InCart) {
-   this.activeModal.close(product);
   }
 }
 
