@@ -1,0 +1,10 @@
+<div class="card mb-4 box-shadow">
+  <div class="card-body">
+    <h4>{{product.title}}</h4>
+    <img src="{{product.image}}" class="img-thumbnail">
+    <p class="card-text">{{ product?.price | currency: 'RUB ': true:'1.1-1' }}</p>
+    <div class="d-flex justify-content-between align-items-center">
+      <app-button [product]=product (onClick)="cartService.addToCart(product)"></app-button>
+    </div>
+  </div>
+</div>

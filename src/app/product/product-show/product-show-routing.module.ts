@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {ProductCardComponent} from "./product-card.component";
+import {ProductShowComponent} from "./product-show.component";
 
 export const routes: Routes = [
   {
     path: ':id',
-    component: ProductCardComponent
+    component: ProductShowComponent
   }
 ];
 
@@ -20,4 +20,4 @@ export const routes: Routes = [
     RouterModule
   ]
 })
-export class ProductCartRoutingModule { }
+export class ProductShowRoutingModule { }

@@ -38,10 +38,4 @@ export class CatalogComponent implements OnInit {
         queryParams: param
       })
   }
-
-  public openProduct(id: number) {
-    this.catalogService.getProductById(id, (r: Product) => {
-      this.router.navigate(['/product/' + id], {state: {data: r}});
-    })
-  }
 }

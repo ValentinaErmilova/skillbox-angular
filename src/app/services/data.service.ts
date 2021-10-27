@@ -20,6 +20,6 @@ export class DataService {
   }
 
   init(searchParams: Params) {
-    this.catalogService.getProducts(searchParams,(r: any) => this.data = r);
+    this.catalogService.getProducts(searchParams,(r: any) => this.data = r.items);
   }
 }

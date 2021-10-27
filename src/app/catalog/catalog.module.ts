@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CatalogComponent } from './catalog.component';
-import { ProductCardModule } from "../product-card/product-card.module";
+import { ProductModule } from "../product/product.module";
 import { ToggleModule } from "../toggle/toggle.module";
 import { AppRoutingModule } from "../app-routing.module";
 import { CatalogService } from "../services/catalog.service";
@@ -12,7 +12,7 @@ import { CatalogService } from "../services/catalog.service";
   ],
   imports: [
     CommonModule,
-    ProductCardModule,
+    ProductModule,
     ToggleModule,
     AppRoutingModule
   ],

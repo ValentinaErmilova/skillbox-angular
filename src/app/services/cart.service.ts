@@ -17,7 +17,7 @@ export class CartService {
     let existsProducts = this.sortOfProductsInCart.find(p => p.product.id == product.id);
     if (existsProducts) {
       existsProducts.count++;
-      existsProducts.totalCost = product.price.value;
+      existsProducts.totalCost = product.price;
     } else {
       this.sortOfProductsInCart = [new InCart(product), ...this.sortOfProductsInCart];
     }

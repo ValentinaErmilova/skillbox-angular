@@ -5,18 +5,13 @@ export class Product {
   title: string = "";
   image: string = "";
   rating: ProductRating = new ProductRating();
-  price: ProductPrice = new ProductPrice();
+  price: number = 0;
   badge: ProductBadge = new ProductBadge();
 }
 
 export class ProductRating {
   value: number = 0;
   reviews: number = 0;
-}
-
-export class ProductPrice {
-  value: number = 0;
-  discount?: number = undefined;
 }
 
 export class ProductBadge {

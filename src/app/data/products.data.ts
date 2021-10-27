@@ -12,10 +12,7 @@ export const products: Array<Product> = [
       value: 5,
       reviews: 4,
     },
-    price: {
-      value: 53000,
-      discount: 0.3,
-    },
+    price: 53000,
     badge: {
       color: '#FF3366',
       text: 'Скидка'
@@ -32,10 +29,7 @@ export const products: Array<Product> = [
       value: 5,
       reviews: 4,
     },
-    price: {
-      value: 66000,
-      discount: 0.17,
-    },
+    price: 66000,
     badge: {
       color: '#FF3366',
       text: 'Скидка'
@@ -52,10 +46,7 @@ export const products: Array<Product> = [
       value: 5,
       reviews: 4,
     },
-    price: {
-      value: 63000,
-      discount: undefined,
-    },
+    price: 63000,
     badge: {
       color: '#FF3366',
       text: 'Скидка'
@@ -72,10 +63,7 @@ export const products: Array<Product> = [
       value: 5,
       reviews: 4,
     },
-    price: {
-      value: 63000,
-      discount: 0.2,
-    },
+    price: 63000,
     badge: {
       color: '#FF3366',
       text: 'Скидка'
@@ -92,10 +80,7 @@ export const products: Array<Product> = [
       value: 5,
       reviews: 4,
     },
-    price: {
-      value: 53000,
-      discount: 0.3,
-    },
+    price: 53000,
     badge: {
       color: '#FF3366',
       text: 'Скидка'
@@ -112,10 +97,7 @@ export const products: Array<Product> = [
       value: 5,
       reviews: 4,
     },
-    price: {
-      value: 66000,
-      discount: 0.17,
-    },
+    price: 66000,
     badge: {
       color: '#FF3366',
       text: 'Скидка'
@@ -132,10 +114,7 @@ export const products: Array<Product> = [
       value: 5,
       reviews: 4,
     },
-    price: {
-      value: 63000,
-      discount: undefined,
-    },
+    price: 63000,
     badge: {
       color: '#FF3366',
       text: 'Скидка'
@@ -152,10 +131,7 @@ export const products: Array<Product> = [
       value: 5,
       reviews: 4,
     },
-    price: {
-      value: 63000,
-      discount: 0.2,
-    },
+    price: 63000,
     badge: {
       color: '#FF3366',
       text: 'Скидка'
@@ -172,10 +148,7 @@ export const products: Array<Product> = [
       value: 5,
       reviews: 4,
     },
-    price: {
-      value: 53000,
-      discount: 0.3,
-    },
+    price: 53000,
     badge: {
       color: '#FF3366',
       text: 'Скидка'
@@ -192,10 +165,7 @@ export const products: Array<Product> = [
       value: 5,
       reviews: 4,
     },
-    price: {
-      value: 66000,
-      discount: 0.17,
-    },
+    price: 66000,
     badge: {
       color: '#FF3366',
       text: 'Скидка'
@@ -212,10 +182,7 @@ export const products: Array<Product> = [
       value: 5,
       reviews: 4,
     },
-    price: {
-      value: 63000,
-      discount: undefined,
-    },
+    price: 63000,
     badge: {
       color: '#FF3366',
       text: 'Скидка'
@@ -232,10 +199,7 @@ export const products: Array<Product> = [
       value: 5,
       reviews: 4,
     },
-    price: {
-      value: 63000,
-      discount: 0.2,
-    },
+    price: 63000,
     badge: {
       color: '#FF3366',
       text: 'Скидка'

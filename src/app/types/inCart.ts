@@ -8,7 +8,7 @@ export class InCart {
   constructor(product: Product) {
     this.count++;
     this.product = product;
-    this.totalCost = product.price.value;
+    this.totalCost = product.price;
   }
 
   get count(): number {
