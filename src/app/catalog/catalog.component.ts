@@ -1,8 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ActivatedRoute, Params, Router} from "@angular/router";
-import {DataService} from "../services/data.service";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {CatalogService} from "../services/catalog.service";
-import {Product} from "../types/product";
+import {Observable} from "rxjs";
+import {ProductCatalog} from '../types/product';
 
 @Component({
   selector: 'app-catalog',
@@ -12,30 +12,26 @@ import {Product} from "../types/product";
 
 export class CatalogComponent implements OnInit {
   @Output() addToCard = new EventEmitter<number>();
-  //title?: string;
+  @Input() hasPriceSearch = false;
+  private searchParam = {};
+  public catalog$?: Observable<ProductCatalog>;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    public dataService: DataService,
     private catalogService: CatalogService) {
-    //this.title = this.route.snapshot.data.title;
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => this.dataService.init(params));
+    this.catalog$ = this.catalogService.getProducts$(this.searchParam);
   }
 
-  setSearch(filterBy: string, search: string) {
-    let param: Params = {};
-    if (search) {
-      param['search'] = search;
-    }
-    param['filterBy'] = filterBy;
-    this.router.navigate(['.'],
-      {
-        relativeTo: this.route,
-        queryParams: param
-      })
+  setSearch(param: {[key: string]: string}) {
+    this.hasPriceSearch = true;
+    this.searchParam = {
+      ...this.searchParam,
+      ...param
+    };
+    this.catalog$ = this.catalogService.getProducts$(this.searchParam);
   }
 }

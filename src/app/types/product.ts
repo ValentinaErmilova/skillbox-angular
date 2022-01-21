@@ -1,3 +1,8 @@
+export class ProductCatalog {
+  items?: Array<Product>;
+  meta: any
+}
+
 export class Product {
   id: number = 0;
   availability: boolean = false;

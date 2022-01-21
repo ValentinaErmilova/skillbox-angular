@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ProductService } from "./product.service";
 import { products } from '../data/products.data';
-import { Product } from '../types/product';
 import { Params } from "@angular/router";
+import { Observable } from "rxjs";
+import { ProductCatalog } from "../types/product";
 
 @Injectable()
 export class CatalogService {
@@ -10,10 +11,8 @@ export class CatalogService {
   constructor(private productService: ProductService) {
   }
 
-  public getProducts(searchParams: Params, callback: Function) {
-    this.productService.getProducts(searchParams).then(r => callback(r)).catch(e => {
-      // callback(this.sortBy(searchParams.search, this.filterBy(searchParams.filterBy, products)));
-    });
+  public getProducts$(searchParams: Params): Observable<ProductCatalog> {
+    return this.productService.getProducts$(searchParams);
   }
 
   public getProductById(id: number, callback: Function) {

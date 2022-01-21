@@ -2,14 +2,14 @@
   <section style="margin-bottom: 20px">
     <div class="row justify-content-between">
       <div class="col-4">
-            <input class="form-control me-2" type="text" placeholder="Search" #search>
+            <input class="form-control me-2" type="text" placeholder="Поиск по имени" (keyup.enter)="setSearch({name: search.value}) "#search>
 <!--            <button class="btn btn-outline-success" (click)="setSearch(search.value, search.value)">Search</button>-->
       </div>
       <div class="col-6">
         <ul class="list-group list-group-horizontal">
           <li class="list-group-item filter">Сортировать: </li>
           <li class="list-group-item filter">По умолчанию</li>
-          <li class="list-group-item filter">Цена</li>
+          <li class="list-group-item filter" routerLinkActive="hasPriceSearch" (click)="setSearch({name: search.value})">Цена</li>
           <li class="list-group-item filter">Рейтинг</li>
         </ul>
 <!--          <select [ngClass]="['select']" (change)="setSearch(filterBy.value, search.value)" #filterBy>-->
@@ -21,7 +21,7 @@
     </div>
   </section>
   <app-product-card class="col-md-4"
-    *ngFor="let product of dataService.data"
+    *ngFor="let product of (catalog$ | async)?.items"
     [product]="product"
     [routerLink]="['/product', product.id]">
   </app-product-card>

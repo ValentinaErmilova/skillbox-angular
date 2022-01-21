@@ -56,5 +56,5 @@ export class AppModule { }
 
 export function init(service : DataService) {
   console.log("--1-- init in module app")
-  return () => service.init({});
+  return () => service.init();
 }
